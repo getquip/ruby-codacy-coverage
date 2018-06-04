@@ -2,7 +2,8 @@ module Codacy
   class Git
     def self.commit_id
 
-      commit = ENV['TRAVIS_COMMIT'] ||
+      commit = ENV['HEROKU_TEST_RUN_COMMIT_VERSION'] ||
+          ENV['TRAVIS_COMMIT'] ||
           ENV['DRONE_COMMIT'] ||
           ENV['GIT_COMMIT'] ||
           ENV['CIRCLE_SHA1'] ||
